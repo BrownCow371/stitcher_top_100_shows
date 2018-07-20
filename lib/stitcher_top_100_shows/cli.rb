@@ -11,9 +11,9 @@ class StitcherTopShows::CLI
     self.print_categories
     input = gets.strip.to_i
 
-    category = 
+    #category = 
     #they pick a category...now what? - need to call shows for that category
-    self.pick_show
+    #self.pick_show
   end
 
   def pick_show(url)#might need url argument?

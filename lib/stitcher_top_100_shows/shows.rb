@@ -10,7 +10,7 @@ class StitcherTopShows::Show
     @@categories = self.all.collect{|show| show.category}.uniq
   end
 
-  def self.find(by what?)
+  def self.find(stuff)
   end
 
   def self.all
@@ -21,14 +21,14 @@ class StitcherTopShows::Show
     self.all.clear
   end
 
-  def self.new_from_somewhere(what goes here)
+  def self.new_from_somewhere(stuff)
   end
 
-  def initialize(do I need stuff here)
+  def initialize(stuff)
   end
 
 
-  def add_show_attributes(take a hash?)
+  def add_show_attributes(stuff)
   end
 
 

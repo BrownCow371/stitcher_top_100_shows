@@ -25,10 +25,17 @@ class StitcherTopShows::Scraper
     end
   end
 
-  # yeah might need categories class....
-
   def get_page_shows(category_url)
     Nokogiri::HTML(open("https://www.stitcher.com/#{category_url}"))
   end
 
+  def scrape_shows_index(category)
+    self.get_page_shows(category).css("some stuff")
+  end
+
+  def make_shows(category)
+    scrape_shows_index(category).each do |s|
+      StitcherTopShows::Show.new_from_index(s)
+    end
+  end
 end
