@@ -1,6 +1,6 @@
 class StitcherTopShows::Show
 
-  attr_accessor :title, :category, :about, :stars, :most_recent_title, :most_recent_url, :most_recent_desc
+  attr_accessor :title, :category, :about, :stars, :most_recent_title, :most_recent_url, :most_recent_desc :week_of
 
   #@@all = []
   @@all = ["Show 1", "Show 2", "Show 3"]

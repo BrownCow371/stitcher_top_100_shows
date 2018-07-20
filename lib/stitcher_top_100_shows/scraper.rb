@@ -1,3 +1,5 @@
+require 'pry'
+
 class StitcherTopShows::Scraper
 
 #URLS by category - do I need a category class?? Maybe...
@@ -12,11 +14,12 @@ class StitcherTopShows::Scraper
 # games and hobbies     => https://www.stitcher.com/stitcher-list/games-and-hobbies-podcasts-top-shows
 # etc.
   def get_page_categories
-    Nokogiri::HTML(open("https://www.stitcher.com/stitcher-list/"))
+    Nokogiri::HTML(open("https://www.stitcher.com/stitcher-list/all-podcasts-top-shows"))
   end
 
   def scrape_categories_index
-    self.get_page_categories.css("some stuff")
+    cat = self.get_page_categories.css("div #sidebar-detail ul #category-nav")
+    binding.pry
   end
 
   def make_categories
@@ -25,12 +28,19 @@ class StitcherTopShows::Scraper
     end
   end
 
-  def get_page_shows(category_url)
-    Nokogiri::HTML(open("https://www.stitcher.com/#{category_url}"))
+  # def get_page_shows(category_url)
+  #   Nokogiri::HTML(open("https://www.stitcher.com/#{category_url}"))
+  # end
+  def get_page_shows
+    Nokogiri::HTML(open("https://www.stitcher.com/stitcher-list/all-podcasts-top-shows"))
   end
 
-  def scrape_shows_index(category)
-    self.get_page_shows(category).css("some stuff")
+  # def scrape_shows_index(category)
+  #   self.get_page_shows(category).css("some stuff")
+  # end
+
+  def scrape_shows_index
+    self.get_page_shows.css("table #stitcher-list")
   end
 
   def make_shows(category)

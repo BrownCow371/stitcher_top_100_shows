@@ -2,8 +2,9 @@ class StitcherTopShows::Category
 
   attr_accessor :url, :name
 
-  @@all = []
-  
+  #@@all = []
+  @@all  = ["All", "Comedy", "Business and Industry", "News and Politics", "Society and Culture"]
+
   def initialize
   end
 
