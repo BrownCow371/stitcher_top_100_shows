@@ -11,13 +11,23 @@ class StitcherTopShows::CLI
     self.print_categories
     input = gets.strip.to_i
 
-    #category = 
+    # Call Category.all and grab an index and the url
+    category = ["All", "Comedy", "Business and Industry", "News and Politics", "Society and Culture"]
+    category[input-1]
+
+    # self.print_shows(url) - will eventually need a url
+    self.print_shows
     #they pick a category...now what? - need to call shows for that category
     #self.pick_show
+    self.pick_show
   end
 
-  def pick_show(url)#might need url argument?
-    puts 
+  #def pick_show(url)#might need url argument?
+  def pick_show
+    puts "Which show would you like more details on? Please Enter the Show List number."
+    input = gets.strip.to_i
+    show = StitcherTopShows::Show.find_by_index(input)
+    print_show_details(show)
   end
 
   def print_categories
@@ -25,18 +35,25 @@ class StitcherTopShows::CLI
     #should be calling StitcherTopShows::Category.all.each.with_index(1) do |category, index|
     #puts "#{index}.  #{category.name}"
     #end
-    puts "----------------------------------"
+    puts "---------------------Top Show Categories---------------------"
     puts "1. All" 
     puts "2. Comedy"
     puts "3. Business and Industry"
     puts "4. News and Politics"
     puts "5. Society and Culture"
+    puts "-------------------------------------------------------------"
   end
 
-  def print_shows(range)
+  # def print_shows(category_url)
+  def print_shows
+    puts ""
+    StitcherTopShows::Show.all.each.with_index(1) do |s, i|
+      puts "#{i} #{s}"
+    end
   end
 
   def print_show_details(show)
+    
   end
 
   def back_to_show_list

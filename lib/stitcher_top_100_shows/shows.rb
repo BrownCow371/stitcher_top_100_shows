@@ -1,16 +1,17 @@
 class StitcherTopShows::Show
 
   attr_accessor :title, :category, :about, :stars, :most_recent_title, :most_recent_url, :most_recent_desc
-  #do I want to give items a temporary ID?
-  @@all = []
- #  @@categories = [] Do I need this?
+
+  #@@all = []
+  @@all = ["Show 1", "Show 2", "Show 3"]
 
 
   def self.category_list
     @@categories = self.all.collect{|show| show.category}.uniq
   end
 
-  def self.find(stuff)
+  def self.find_by_index(list_number)
+    self.all[list_number-1]
   end
 
   def self.all
