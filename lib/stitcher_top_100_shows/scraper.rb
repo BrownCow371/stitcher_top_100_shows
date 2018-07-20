@@ -19,6 +19,12 @@ class StitcherTopShows::Scraper
     self.get_page_categories.css("some stuff")
   end
 
+  def make_categories
+    self.scrape_categories_index.each do |c|
+      StitcherTopShows::Category.new_from_index(c)
+    end
+  end
+
   # yeah might need categories class....
 
   def get_page_shows(category_url)

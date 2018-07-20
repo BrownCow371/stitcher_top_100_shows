@@ -6,18 +6,25 @@ class StitcherTopShows::CLI
   end
 
   def pick_category
+    puts ""
     puts "Which category of shows would you like to see the top 100 for? Enter the category list number."
     self.print_categories
     input = gets.strip.to_i
 
-    
+    category = 
+    #they pick a category...now what? - need to call shows for that category
+    self.pick_show
   end
 
   def pick_show(url)#might need url argument?
+    puts 
   end
 
   def print_categories
     #hard code some categories here. 
+    #should be calling StitcherTopShows::Category.all.each.with_index(1) do |category, index|
+    #puts "#{index}.  #{category.name}"
+    #end
     puts "----------------------------------"
     puts "1. All" 
     puts "2. Comedy"
