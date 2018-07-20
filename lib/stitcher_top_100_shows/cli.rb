@@ -6,6 +6,8 @@ class StitcherTopShows::CLI
   end
 
   def pick_category
+    puts "Which category of shows would you like to see the top 100 for?"
+
   end
 
   def pick_show(url)#might need url argument?
